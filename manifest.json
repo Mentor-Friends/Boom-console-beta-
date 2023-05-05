@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Boom Console",
+  "short_name": "boom-console",
+  "version": "1.0.0",
+  "description": "Boom Console",
+  "icons": {
+    "16": "assets/icons/16.png",
+    "32": "assets/icons/32.png",
+    "48": "assets/icons/48.png",
+    "128": "assets/icons/128.png"
+},
+  "permissions": [
+    "tabs",
+    "storage",
+    "scripting"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["contentPage.js"],
+      "persistAcrossSessions": true
+    }
+  ],
+  "host_permissions": [
+    "https://*/*"
+  ],
+  "action": {
+    "default_popup": "index.html?#/options",
+    "default_title": "Login"
+  },
+  "options_page": "index.html?#/options",
+  "background": {
+    "service_worker": "serviceWorker.js"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
