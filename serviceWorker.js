@@ -14,8 +14,7 @@ chrome.storage.onChanged.addListener(function (x) {
     if (chrome.runtime.lastError) {
         console.log("error found");
     }
-    console.log(x);
-    console.log((_a = x["trace"]) === null || _a === void 0 ? void 0 : _a.newValue);
+
     if (((_b = x["trace"]) === null || _b === void 0 ? void 0 : _b.newValue) == true) {
         chrome.tabs.onUpdated.addListener(myListener);
     }
